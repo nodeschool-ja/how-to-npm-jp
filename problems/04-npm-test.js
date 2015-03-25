@@ -10,31 +10,33 @@ exports.problem = function () {
     return ''
 
   return function () {/*
-Now you've installed something, and used `npm ls` to show what's going on.
+これまでのところで、パッケージをインストールし、`npm ls` を使うとなにが
+起きるかを見ました。
 
-If you look at the package.json file, it has this rather odd bit in it:
+package.json ファイルを見ると、次のような若干奇妙な記述があります:
 
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
-npm can be used as a task runner, and almost every module and project
-will have a test script that runs to make sure everything is good.  In
-order to help remind you to do this, npm puts a "always failing" test
-in there by default.
+npm はタスクランナーとして使うことができます。そして、ほとんどすべての
+モジュールとプロジェクトでは、いずれテストスクリプトを追加し、それを
+走らせて、問題がないかどうか確認できるようにします。これを忘れないよう
+にするために、npm は、デフォルトで、常に失敗するテストを設定します。
 
-First, create a file called `test.js`.  It doesn't have to do anything,
-really.  (This is npm class, not testing class.)  But it has to exit
-without throwing an error, or else the test fails.
+まずは、`test.js` というファイルを作成します。`test.js` の中では、実際
+にはなにもする必要はありません(これは、ただの npm のクラスで、テスト
+用の特別なクラスではありません)。しかし、エラーはスローせずに終了しな
+ければなりません。さもなくば、テストは失敗します。
 
-Then, edit your `package.json` file to make your scripts section look like
-this instead:
+それから、`package.json` ファイルを編集して、scripts セクションを次の
+ように変更します:
 
   "scripts": {
     "test": "node test.js"
   },
 
-Once that's done, run `how-to-npm verify` to check your work.
+これができたら、`how-to-npm verify` を実行してチェックしましょう。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -50,29 +52,29 @@ exports.verify = function (args, cb) {
   var pj = require(cwd + '/package.json')
 
   if (!pj.scripts || !pj.scripts.test) {
-    console.log('Oops!  You don\'t have a `scripts.test` section in your\n' +
-                'package.json file.  Edit it, and try again.')
+    console.log('おおっと。`scripts.test` セクションが、package.json ファイル\n' +
+                'の中にありません。編集して、再度実行してください。')
     return cb(false)
   }
 
   // try running the test!
   var exec = require('child_process').exec
 
-  console.log('Running your test script...\n\n')
+  console.log('テストスクリプトを実行しています...\n\n')
   exec('npm test --color=always', function (er, stdout, stderr) {
     process.stdout.write(stdout)
     process.stderr.write(stderr)
 
-    console.log('\n\n...done!')
+    console.log('\n\n...完了')
 
     if (er) {
-      console.log('Uh oh!  The test failed!\n'+
-                  'Try creating a test that actually works.')
+      console.log('ありゃりゃ、テスト失敗です。\n'+
+                  'ちゃんと動作するテストを作成してください。')
       return cb(false)
     }
 
-    console.log('Congratulations!  You wrote a test that passes!\n'+
-                'Writing a test that is actually GOOD is left for another time.')
+    console.log('おめでとうございます。通過するテストを書けました。\n'+
+                '実際に動作するテストを書くのは、またの機会に取っておくことにしましょう。')
     return cb(true)
   })
 }
