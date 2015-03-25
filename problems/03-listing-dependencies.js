@@ -9,14 +9,14 @@ exports.problem = function () {
 
   reg.run("install-a-module")
   return function () {/*
-npm isn't just for installing stuff.  It also shows you what you
-have installed.
+npm は、ただインストールするためだけにあるわけではありません。
+インストール済みのものを見ることもできます。
 
-You can do this using the `npm ls` command.
+`npm ls` コマンドでこれができます。
 
-Run this command in your working dir, and then run
-`how-to-npm verify OK` if everything looks ok,
-or `how-to-npm verify NOT OK` if there was a problem.
+このコマンドを作業ディレクトリで実行して、問題なさそうであれば、
+`how-to-npm verify OK` を実行してください。なにか問題があった
+場合は、`how-to-npm verify NOT OK` です。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -49,51 +49,53 @@ exports.verify = function (args, cb) {
   var claim = args.join('').toUpperCase().trim()
 
   if (claim !== 'OK' && claim !== 'NOTOK') {
-    console.log('Please run:\n' +
-                '`how-to-npm verify OK` if everything is ok,\n'+
-                'or:\n' +
-                '`how-to-npm verify NOT OK` otherwise.')
+    console.log('問題がなければ:\n' +
+                '`how-to-npm verify OK`\n' +
+                'そうでなければ:\n' +
+                '`how-to-npm verify NOT OK` を実行してください。')
     return cb(false)
   }
 
 
 
   if (claim === 'OK' && !ok) {
-    console.log('Sorry, no.  Everything is not ok!\n' +
-                'Try running `npm ls` and viewing the error.')
+    console.log('残念ながら NO です。うまくいっていない箇所があります。\n' +
+                '`npm ls` を実行して、エラーを確認してください。')
     return cb(false)
   } else if (claim === 'NOTOK' && ok) {
-    console.log('Hmm...\n' +
-                'Well, there may indeed be a lot wrong with the world,\n' +
-                'but your package.json and node_modules folder are fine.')
+    console.log('うーん...\n' +
+                'えーと...そりゃ世の中納得いかないこともたくさんあるんでしょうが、\n' +
+                'すくなくとも、あなたの package.json と nodo_modules フォルダーは\n' +
+                'いい感じですよ。')
     return cb(false)
   } else if (ok) {
-    console.log('Looks like you fixed the problem.  Fantastic!\n'+
-                'Note that `npm ls` is a lot calmer now.')
+    console.log('問題を修正できたようですね。すばらしい。\n'+
+                'もう `npm ls` も赤い字で怒ってきたりしませんね。')
     reg.kill()
     return cb(true)
   } else {
     console.log(function () {/*
-Indeed, not all is well here in dep-land.
+実際、いまの段階では、依存関係の設定でできていないことがあります。
 
-Your dependencies should be listed in the package.json file in an
-object called 'dependencies'.  However, when we installed 'once',
-we didn't update the package.json file to list out this dependency.
+みなさんの依存関係は、package.json の中の 'dependencies' と呼ばれる
+場所にリストすべきです。しかしながら、'once' をインストールしたとき
+には、package.json ファイルを更新して依存関係を追加しませんでした。
 
-So, it shows up as 'extraneous', warning us that we have something
-there that we haven't listed as a dependency.
+ですので、npm は、'extraneous' という警告を表示をして、依存関係に
+追加していないものがあることを知らせているのです。
 
-The easiest way to avoid this situation is to use the `--save` flag
-when installing dependencies.  You might not want to do this with
-things that you're just trying out, but when you decide on something,
-you can use this flag to update your package.json file easily.
+この状況を解決する一番簡単な方法は、`--save` フラグを使って、依存
+パッケージをインストールすることです。パッケージをお試しで使ってみ
+ているだけであれば、この機能を使いたくはないでしょう。しかし、ひと
+たび正式に使うと決めたなら、このフラグを使って package.json
+ファイルを簡単に更新できます。
 
-Try running `npm install once --save` to install the module, and also
-update your package.json file at the same time.
+`npm install once --save` を実行して、モジュールをインストールすると
+同時に、package.json ファイルを更新してみましょう。
 
-(Another option is to just edit package.json yourself in a text editor)
+(もしくは、単に package.json をテキストエディタで編集してもかまいません)
 
-Then run `how-to-npm verify OK` once you've fixed the problem.
+問題を修正したら、`how-to-npm verify OK` を実行します。
       */}.toString().split('\n').slice(1,-1).join('\n')
     )
     // skip calling the cb, so we can keep working on it.
