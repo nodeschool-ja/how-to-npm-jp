@@ -10,21 +10,24 @@ exports.problem = function () {
   reg.run('login')
 
   return function () { /*
-As much fun as it is to install modules, npm is best when you
-can be a part of it.  That starts with creating an account.
+モジュールのインストールをするだけでもおもしろいのですが、自分
+自身が npm に参加するのもまた、同じくらいたのしいことです。npm
+への参加は、アカウントの作成からはじまります。
 
-Because this is just a tutorial adventure, remember, we're not
-*actually* creating an account anywhere.  However, when you run
-this in the Real World, it'll create a real account, with a page
-on npmjs.com and the ability to publish packages that real live
-humans can install and enjoy.
+いま取り組んでいるのはただのチュートリアルですので、*実際には*
+アカウントを作成しない、ということを思い出してください。しかし
+ながら、実際の世界で同じことをすれば、本物のアカウントを作成で
+きます。本物のアカウントには、npmjs.com のページがついてきて、
+パッケージを公開し、他の人にインストールてたのしんでもらうこと
+ができます。
 
-To see who you're logged in as, run `npm whoami`
+ログインしているアカウントを確認するには、`npm whoami` を実行
+します。
 
-To create your account, run `npm adduser`
+アカウントの作成は、`npm adduser` です。
 
-Try it now, and open the door to ever-greater module fun times!
-Then run `how-to-npm verify`
+では、実際にやってみてください。そして、これまでよりもさらに
+たのしいモジュール作成への一歩を踏み出してください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -42,25 +45,26 @@ exports.verify = function (args, cb) {
       process.stdout.write(stdout)
       process.stderr.write(stderr)
 
-      console.log('\nUh oh!\n' +
-                  'It looks like something went wrong')
+      console.log('\nあれれ\n' +
+                  'なにかがおかしいですね')
       return cb(false)
     }
 
     stdout = (stdout + '').trim()
     if (stdout.match(/Not authed.  Run 'npm adduser'/)) {
-      console.log('Hm... I don\'t see a login here\n'+
-                  'Did you run `npm adduser` to create the account?')
+      console.log('うーん... ログインしていませんね。\n'+
+                  '`npm adduser` を実行してアカウントの作成はしましたか?')
       return cb(false)
     }
 
-    console.log('Congratulations, %s!', stdout)
-    console.log('You are the proud owner of an imaginary new npm account!\n'+
-                'Use it wisely.  Never in anger.  Always for the Good.\n'+
+    console.log('おめでとうございます、%s!', stdout)
+    console.log('いまやあなたは架空の npm アカウントを手にしました。\n' +
+                '注意して使ってください。怒りに身をまかせてはいけません。\n' +
+                '良きことのためだけに使うのです。\n' +
                 '\n' +
-                'With this sweet power comes much responsibility, which is\n'+
-                'sufficiently different from Spiderman\'s thing that Marvel\n'+
-                'hopefully won\'t sue us.\n\nExcelsior!')
+                'この甘美なる力には責任が伴います。スパイダーマンのとはちょっと\n' +
+                '変えたからマーベルも文句言ってこないよね...だといいなあ。\n' +
+                '\nエクセルシオール!')
 
     reg.kill()
     return cb(true)
