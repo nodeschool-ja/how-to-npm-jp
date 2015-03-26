@@ -11,22 +11,24 @@ exports.problem = function () {
   reg.run('publish')
 
   return function () { /*
-What good is a package manager without packages?
+みなさんはパッケージのないパッケージマネージャを良いと思うでしょうか。
 
-Not very good.
+あまり良いとは言えないですね。
 
-Luckily, that is not a problem for npm, because it's very easy for all
-npm users to publish their modules and share them with the world.
+幸運なことに、npm ではこういうことは問題になりません。なぜなら、npm
+ならだれでも簡単にモジュールを公開して、世界中の人々と共有できるから
+です。
 
-Packages get into the registry by using the `npm publish` command.
+パッケージは、`npm publish` コマンドを使ってレジストリに入れることが
+できます。
 
-Try it now.  There's not much too it.
+ではやってみてください。なにもたいへんなことはありません。
 
-(Make sure you're still in the right project directory, though.  If you
-publish something by mistake, you can remove it, but there's no guarantee
-that no one saw it in the meantime.)
+(正しいプロジェクトのディレクトリ内にいるでしょうか。もし間違って公開して
+しまったとしても、取り止めることができます。取り止めるまでの間にだれも
+それを見ていないという保証はありませんが...)
 
-Then run `how-to-npm verify` when you're done.
+それができたら、`how-to-npm verify` を実行します。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -43,34 +45,33 @@ exports.verify = function (args, cb) {
   exec(npm + ' --color=always view ' + name, function (er, stdout, stderr) {
     if (er) {
       process.stderr.write(stderr)
-      console.log('Uh oh!\n'+
-                  'It looks like you didn\'t successfully publish the ' +
+      console.log('うーん。\n'+
                   name + '\n' +
-                  'package.  Try again!\n')
+                  'パッケージの公開に成功しなかったようです。もう一度やってみてください。\n')
     }
 
     console.log(function () {/*
-In order to view your package content, I just ran this command:
+パッケージの内容を見るために、このコマンドを内部で実行しました:
 
   npm view %NAME%
 
-Run that command yourself to see what it prints out.
+自分自身で実行して、なにが表示されるか確認しましょう。
 
 
-The `npm view` command is a great way to view package details,
-to see what you just published, and to check if a name is already taken.
+`npm view` コマンドは、パッケージの詳細を確認するのにとても役立ちます。
 
-Now that you've published your first package here in make-believe npm
-workshop land, go out and write a real thing to share with real humans!
+これで、みなさんの最初のパッケージを公開したと npm のワークショップに
+信じ込ませることができました。このディレクトリの外に出れば、本物のコード
+を書き、実際に人々と共有することができます。
 
-You don't have to just share code for other people, though.  There are
-also benefits to breaking up your code into small manageable pieces, even
-if you are only using them all yourself.
+npm の用途は、他人とコードを共有するだけにとどまりません。コードを小さく
+て、管理し易い大きさに分割するという利点もあります。たとえ、自分自身のた
+めにしかそれを使わないとしてもです。
 
-You can imagine that your future self and your past self are the two
-other developers on your team.  (Scheduling meetings is pretty tricky.)
+未来の自分と過去の自分が、それぞれ別の開発者としてチームにいる状態を考
+えてみてください(二人をつれてきて会議をするのは、極めて難しいですね)。
 
-Run `how-to-npm` to go on to the next adventure!
+`how-to-npm` を実行して、次のアドベンチャーに進みましょう。
 */}.toString().split('\n').slice(1,-1).join('\n').replace(/%NAME%/g, name))
     reg.kill()
 
