@@ -73,7 +73,7 @@ exports.verify = function (args, cb) {
     console.log('追加課題として、 このディレクトリを git リポジトリとして\n' +
                 'セットアップしてみましょう。\n\n' +
                 'npm の規約では、各モジュールやプロジェクトが、git リポジトリ\n' +
-                'をひとつ持つことになっています。`git init` を使用すれば、\n' +
+                'をひとつ持つことになっています。`git init` コマンドを使用すれば、\n' +
                 '作業ディレクトリを git プロジェクトとしてセットアップできます。\n\n' +
                 'それから、`how-to-npm verify extra credit` を実行します。\n\n')
   }
