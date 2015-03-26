@@ -13,25 +13,26 @@ exports.problem = function () {
   var id = pkg.name + '@' + pkg.version
 
   return function () { /*
-So, we've created a package.json file, but it's missing a few things
-that people usually expect.  If you type `npm install`, you'll see
-something like this:
+ここまでで、 package.json ファイルを作成しました。しかし、そのファイル
+には、ユーザーがふつうあって欲しいと思うものがすこし欠けています。
+`npm install` とタイプすると、以下のように表示されるでしょう:
 
     npm WARN package.json %ID% No description
     npm WARN package.json %ID% No repository field.
     npm WARN package.json %ID% No README data
 
-Before we can share this work of art with the world, we need to make
-it a bit more polished so that people know how to use it.
+このすばらしい仕事を世界に向けて共有する前に、もうすこしプロジェクト
+を洗練させて、ユーザーが使用方法を理解できるようにする必要があります。
 
-First, create a README.md file, with a bit of words in it.
+まずは、README.md ファイルを作成し、説明を書いておきます。
 
-Then, add a "repository" field in your package.json file, with a url
-where people can access the code.
+それから、"repository" フィールドを package.json ファイルに追加し、
+ユーザーがコードにアクセスできるように URL を記述します。
 
-You can edit your package.json file by hand, or run `npm init` again.
+自分の手で package.json を編集してもいいですし、`npm init` を再度実行
+してもかまいません。
 
-Run `how-to-npm verify` when you're done.
+終わったら、`how-to-npm verify` を実行します。
 */}.toString().split('\n').slice(1,-1).join('\n').replace(/%ID%/g, id)
 }
 
@@ -57,22 +58,23 @@ exports.verify = function (args, cb) {
       process.stdout.write(stdout)
       process.stderr.write(stderr)
 
-      console.log('\nUh oh!\n' +
-                  'It looks like something went wrong')
+      console.log('\nあれれ\n' +
+                  'なにかがおかしいですね')
       return cb(false)
     }
 
     stderr = (stderr + '').trim()
     if (stderr.match(/npm WARN package\.json/)) {
-      console.log('\nNot quite!\n' +
-                  'There\'s still a problem to fix.\n\n'+
+      console.log('\nおしい。\n' +
+                  'まだ直すところがあります。\n\n'+
                   stderr + '\n')
       return cb(false)
     }
 
-    console.log('Looking sharp!\n' +
-                'A package without a readme and some metadata is like a\n'+
-                'bunch of JavaScript without instructions or git repo links.')
+    console.log('よくなりましたね。\n' +
+                'README やメタデータの欠けたパッケージは、大量の JavaScript\n' +
+                'だけあって、使い方の説明も git リポジトリへのリンクもない\n' +
+                'ようなものです。')
     return cb(true)
   })
 }
