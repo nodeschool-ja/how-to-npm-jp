@@ -41,7 +41,7 @@ exports.verify = function (args, cb) {
     console.log('おっと、パッケージが正しくインストールされていないようです。\n'+
                 '発生したエラー: \n' +
                 (er.stack || er.message) + '\n' +
-                '`npm install once` を実行して `once` モジュールを\n' +
+                '`npm install once` コマンドを実行して `once` モジュールを\n' +
                 'インストールをしましたでしょうか。確認してください。')
     return cb(false)
   }
