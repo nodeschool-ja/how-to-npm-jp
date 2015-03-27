@@ -11,15 +11,17 @@ exports.problem = function () {
 
   reg.run('publish')
   return function () { /*
-Publishing something once is fine.  But healthy packages get
-published again and again with new and exciting bug fixes.
+なにがしかのものを公開することはできました。しかし、健全なパッケージ
+は、新しくて刺激的なバグフィックスと共に、何度も何度も更新されるもの
+です。
 
-You can't re-use the same version number again, because that's hella
-confusing for all the robots running the treadmills that power the npm
-registry.  But, now that we changed the version number in the last
-exercise, you can publish the package again.
+同じバージョン番号を使い回すことはできません。なぜなら、そんなことを
+すれば、npm レジストリを動かす動力源として、ベルトコンベヤの上をせっせ
+と走っているロボットたちをとんでもなく混乱させることになってしまうから
+です。
 
-Go for it!  Then get your prize with `how-to-npm verify`
+では、やってみましょう。そして、`how-to-npm verify` でご褒美をもらっ
+てください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -40,25 +42,28 @@ exports.verify = function (args, cb) {
   })
 
   if (releases.length <= 1) {
-    console.log('Whoops!\n' +
-                'Looks like you did not publish the package again\n' +
-                'Try running `npm publish` and then verifying again.')
+    console.log('ありゃりゃ。\n' +
+                'パッケージを公開していないようですね。\n' +
+                '`npm publish` を実行してから、再度検証してみてください。')
     return cb(false)
   }
 
   if (releases.indexOf(ver) === -1) {
-    console.log('Hmm... I see that you published more than once, but\n' +
-                'the current version (%s) is not in the set.\n' +
-                'Here\'s what I see in there:\n' +
+    console.log('うーむ... 2回以上公開したようではありますが、\n' +
+                '現在のバージョン (%s) はその中にはありませんね。\n' +
+                'こちらで確認した内容はこうなってます:\n' +
                 '%s\n' +
-                'Try publishing again!',
+                'もう１度公開してみてください。',
                 ver, JSON.stringify(releases, null, 2))
     return cb(false)
   }
 
-  console.log('Wow!  You are well on your way to becoming a regular\n' +
-              'TJames "Substack" Halidaychuk!  There\'s no stopping you!\n' +
-              'Run `how-to-npm` to go to the next step.')
+  console.log('わーお。これであなたも未来のTJames "Substack" Halidaychuk\n' +
+              'ですね。もうだれも止められない。\n' +
+              '`how-to-npm` を実行して、次へ進んでください。\n\n' +
+              '(訳注: Node.js 界には TJ Holowaychuk と substack こと James Halliday\n' +
+              'という二人の有名人がいて、異常な数と質のモジュールをnpmに公開してい\n' +
+              'ます)')
   reg.kill()
   return cb(true)
 }
