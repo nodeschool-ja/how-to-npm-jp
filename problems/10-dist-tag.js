@@ -10,22 +10,24 @@ exports.problem = function () {
 
   reg.run('dist-tag')
   return function () { /*
-Every published package on npm has a `dist-tags` entry on it which
-maps strings like "latest" to version numbers like "1.2.48".
+npm に公開されたパッケージは、いずれも `dist-tags` (配布タグ)
+エントリーを持っていて、それらは、 "latest" のような文字列を "1.2.48"
+のようなバージョン番号にマッピングします。
 
-By default, the "latest" version is what gets installed.  When you
-publish, the version that you publish gets tagged as "latest".  This
-is generally great, because most of the time you publish things when
-you're ready for users to use them.
+デフォルトでは、"latest" バージョンは、インストールされるバージョン
+を指します。パッケージを公開すると、公開したバージョンに "latest"
+というタグが付けられます。これは概ね良好に機能します、なぜなら、
+ほとんどの場合、みなさんがなにかを公開するときには、ユーザーがそれを
+使える用意は整っているはずだからです。
 
-However, if you need to publish something, and *not* make it the
-default version of a package (for example, if it's a security release
-for a legacy version, or something), then you can manually manage
-these distribution tags with the `dist-tag` function.
+しかしながら、もしなにかを公開する必要があって、しかも、それを
+デフォルトバージョンのパッケージにしたくないなら(例えば、レガシーな
+バージョンに対するセキュリティーリリースなど)、`dist-tag` 機能を
+使うことで、手動でそれらの配布物のタグを管理できます。
 
-Run `npm help dist-tag` to learn more about it.
+`npm help dist-tag` を実行すれば、もっと詳しく学べます。
 
-Try adding a dist-tag on your package.
+パッケージに配布タグを付与してみてください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -43,19 +45,21 @@ exports.verify = function (args, cb) {
   var dt = body['dist-tags']
   var tags = Object.keys(dt)
   if (tags.length === 1) {
-    console.log('Uh oh, looks like you still only have a single dist-tag.')
-    console.log('Use `npm help dist-tag` to learn how to add another one.')
+    console.log('おっと、配布用のタグがまだ一つしかないようです。')
+    console.log('`npm help dist-tag` を使用して、どうやってタグを追加する')
+    console.log('のか学んでください')
     return cb(false)
   }
 
   console.log(function () {/*
-Congratulations!  You've added a dist-tag!
+おめでとうございます。配布タグを追加できました。
 
-This is a handy way to manage releases.  For example, the npm project
-itself publishes each new version as 'next' (instead of 'latest') so
-that beta users can test it out before it becomes the default.
+この機能は、リリースを管理するのに便利です。たとえば、npm 自体の
+プロジェクトでは、それぞれ新しいバージョンを ('latest' の替わりに) 'next'
+として公開して、ベータユーザーが、デフォルトになる前のものをテストできる
+ようにしています。
 
-Run `how-to-npm` to move on to the next exercise.
+`how-to-npm` を実行して、次の課題に進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n'))
   reg.kill()
   return cb(true)
