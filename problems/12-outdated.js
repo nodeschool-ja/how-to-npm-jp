@@ -19,17 +19,18 @@ exports.problem = function () {
   reg.run('outdated')
 
   return function () { /*
-Now that we have some dependencies, and you've learned that your own
-packages can be updated repeatedly, the obvious question is: What do
-we do when someone *else* updates *their* package?
+前回までに、依存パッケージがでてきて、それから、自分のパッケージを繰
+り返し更新する方法について学びました。ここでひとつの疑問が浮かびます。
+もし他の誰かが、依存パッケージを更新したときには、どうすればいいで
+しょう。
 
-The first step is to detect this.  Because of the way that we define
-our dependencies with a version range, and each release is a unique
-combination of a name and a version, we can detect compatible releases
-programmatically with the `npm outdated` command.
+最初のステップは、更新を検知することです。幅を持ったバージョンでもって
+依存性を定義しており、各々のリリースは、名前とバージョンの一意な組み
+合わせで識別できることから、`npm outdated` コマンドで機械的に互換性
+のあるリリースを検出することができます。
 
-To pass this challenge, run `how-to-npm verify PKG` where `PKG`
-is the name of the package that is out of date.
+この課題をパスするために、`how-to-npm verify PKG` を実行してください。
+ただし、`PKG` は古くなってしまったパッケージの名前とします。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -42,20 +43,19 @@ exports.verify = function (args, cb) {
   var arg = args.join('').toLowerCase()
   if (arg === 'once') {
     console.log(function () {/*
-That's absolutely right!  The `once` package has had an update while we
-weren't looking.
+正解です。`once` パッケージは、しばらく見ないうちに更新されていました。
 
-In the next lesson, we'll learn how to update packages that are outdated.
+次の講義では、古くなってしまったパッケージを更新する方法について学びます。
 */}.toString().split('\n').slice(1,-1).join('\n'))
     reg.kill()
     return cb(true)
   }
 
   if (!arg || arg === 'pkg') {
-    console.log('Run `how-to-npm verify PKG` but replace `PKG` with the name\n' +
-                'of the package that is outdated')
+    console.log('`how-to-npm verify PKG` を実行してください。ただし、`PKG` を\n' +
+                '古くなってしまったパッケージ名と置き換えて。')
   } else if (arg !== 'once') {
-    console.log('Nope, it\'s not %s.  Try again!', arg)
+    console.log('違います。%s ではありません。もう１度。', arg)
   }
 
   return cb(false)
