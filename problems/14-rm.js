@@ -9,19 +9,21 @@ exports.problem = function () {
     return ''
 
   return function () { /*
-If you have a way to put stuff there, then naturally, you'll one
-day need a way to delete them.
+なにかを追加することができる以上、当然、それを取り除く方法が必要
+になることもあるでしょう。
 
-Enter the `npm rm` command (aka `npm uninstall` if you prefer to
-type things out long-hand).
+その場合、`npm rm` コマンドを入力してください(別名 `npm uninstall`
+もし長いコマンドを入力するのが好きならこちらでもかまいません)。
 
-Remove all the deps!  But, make sure that you don't keep depending on them.
+依存パッケージをすべて削除しましょう。ただし、それらのパッケージを
+実際に使用していないことは確認しておいてください。
 
-Just like you can use `--save` on installing packages, you can also
-use `--save` when removing packages, to also remove them from your
-package.json file.
+インストール時に、`--save` を使ったように、パッケージを取り除くとき
+にも、`--save` を使うことで package.json ファイルからそれに関する
+記述を除去できます。
 
-When you've removed your dependencies, type `how-to-npm verify` to move on.
+依存パッケージを除去できたなら、`how-to-npm verify` とタイプして
+進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -45,21 +47,22 @@ exports.verify = function (args, cb) {
   }
 
   if (nm.length) {
-    console.log('Looks like there are some deps still hanging around')
+    console.log('依存パッケージがまだ残っているようです。')
     return cb(false)
   }
 
   if (deps.length) {
-    console.log('You removed the files, but not the entries in package.json')
+    console.log('ファイル自体は取り除けましたが, package.json 内のエントリー\n' +
+                'が残っています。')
     return cb(false)
   }
 
   console.log(function () {/*
-Awesome!  You have removed the packages from your node_modules folder,
-and also updated your package.json file to reflect that you're no longer
-depending on them.
+すばらしい。node_modules フォルダーからパッケージを取り除けました。
+また、package.json ファイルを更新して、もはやそれらに依存していない
+ということを反映させることができました。
 
-Well done.
+これで完了です。
 */}.toString().split('\n').slice(1,-1).join('\n'))
   return cb(true)
 }
