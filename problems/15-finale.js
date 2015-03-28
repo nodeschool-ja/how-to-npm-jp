@@ -11,10 +11,10 @@ exports.problem = function () {
 
   return function () { /*
 
-It's almost time to say goodbye.  But don't worry!  This is just an
-introduction.  If you've finished all the other exercises, then run
-`how-to-npm verify` to learn about the next steps beyond this little
-adventure.
+おわかれを言うときが近付いてきました。けれど心配はいりません。この
+ワークショッパーはあくまで入門編なのですから。これまでの課題がすべて
+終わったら、`how-to-npm verify` を実行して、この小さなアドベンチャー
+を越えあとに待っている、さらなるステップについて学んでください。
 
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
@@ -31,24 +31,27 @@ exports.verify = function (args, cb) {
 
   // the 1 remaining would be this one, of course
   if (remain > 1) {
-    console.log('It looks like you still have more work to do.')
+    console.log('まだやることがあるみたいですよ。')
     return cb(false)
   }
 
   console.log(function () {/*
-There is SO MUCH MORE that npm can do.  Some of the things that we didn't
-have time to cover in this modest little workshop include:
+npm ができることは、まだまだ他にもあります。時間がなかったため、この小さな
+ワークショップでカバーできなかったのは、例えばこんなことです:
 
-1. Splitting your app up into multiple modules
-2. Sharing private code with teammates using scoped modules
-3. Other fun npm commands, like `edit` and `bugs` and `explore`!
+1. アプリを複数のモジュールに分割する
+2. プライベートなコードをチームメイトと共有するために、スコープ付き
+   モジュールを使う
+3. 他のおもしろい npm コマンド、たとえば、`edit` や `bugs` や `explore`
 
-You can still learn more about all the fun you and npm can have together.
 It all starts with the thought: "There should be a module that does this..."
+まだ他にも、npm でできる興味深いことをたくさん学べます。
+「こんなことをするモジュールがあるはずだ」と考えることから、すべては始るの
+です。
 
-Your adventure is awaiting you at https://www.npmjs.com/
+https://www.npmjs.com/ で冒険がみなさんを待っています。
 
-See you on the internet!
+ではまた、インターネットでお会いしましょう。
 
 */}.toString().split('\n').slice(1,-1).join('\n'))
 
