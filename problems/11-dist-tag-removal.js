@@ -44,7 +44,7 @@ exports.verify = function (args, cb) {
   var dt = body['dist-tags']
   var tags = Object.keys(dt)
   if (tags.length > 1) {
-    console.log('おっ, 余計な配布タグがあるようです。')
+    console.log('おっ、余計な配布タグがあるようです。')
     console.log('`npm help dist-tag` を使って、タグを消す方法を学んでください。')
     return cb(false)
   }
