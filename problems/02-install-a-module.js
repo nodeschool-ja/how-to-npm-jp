@@ -13,9 +13,9 @@ exports.problem = function () {
 ほとんどの人が npm で一番最初にやることは、依存パッケージのインストールです。
 
 依存パッケージは、レジストリから取得して、`node_modules` フォルダに展開
-します。
+されます。
 
-モジュールをインストールするためには、`npm install <modulename>`
+モジュールをインストールするためには、`npm install <モジュール名>`
 コマンドを使います。
 
 このチュートリアルで使用するレジストリは、https://registry.npmjs.org
