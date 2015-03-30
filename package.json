@@ -1,7 +1,7 @@
 {
   "name": "how-to-npm-jp",
   "version": "1.2.0",
-  "description": "モジュールの作成方法を教てくれるモジュールです",
+  "description": "モジュールの作成方法を教えてくれるモジュールです",
   "bin": "index.js",
   "repository": {
     "type": "git",
