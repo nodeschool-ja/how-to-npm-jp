@@ -11,17 +11,19 @@ exports.problem = function () {
   reg.run('update')
 
   return function () { /*
-It's fine, of course, to explicitly check for outdated modules,
-and then run `npm install` to pull them in.
+もちろん、古くなったパッケージを明示的にチェックしてから、
+`npm install` を実行して更新するやりかたでもうまくいきます。
 
-However, if you want to be a bit more lazy about it, there's a special
-npm command that will UPDATE all of your deps to the max version you
-allow in your package.json.
+しかし、もうすこし楽をしたいのであれば、そのために用意された npm
+コマンドがあります。そのコマンドを実行すれば、すべての依存パッケージを
+package.json に記述されている許容可能な最大のバージョンまで引き上げら
+れます。
 
-Can you guess what command that might be?  (`npm help` might help you)
+どのコマンドだか当てられるでしょうか(`npm help` でコマンド一覧が見られ
+ます)。
 
-Update all your deps to the latest version possible, and then
-run `how-to-npm verify` to pick up your delicious green banner.
+すべての依存パッケージを可能な限り新しいバージョンに更新してから、
+`how-to-npm verify` を実行して、緑色の素敵なバナーを表示させましょう。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -33,12 +35,12 @@ exports.verify = function (args, cb) {
 
   var once = require(shop.cwd() + '/node_modules/once/package.json')
   if (once.version !== '1.3.1') {
-    console.log('Oops!  You are still using the outdated version!')
+    console.log('おっと、まだ古いバージョンを使っていますね。')
     return cb(false)
   }
 
   reg.kill()
-  console.log('Awesome!  You\'re up to date!\n' +
-              'Run `how-to-npm` to move on to the next exercise')
+  console.log('すばらしい。最新版にできました。\n' +
+              '`how-to-npm` を実行して次の課題に進んでください。')
   return cb(true)
 }
