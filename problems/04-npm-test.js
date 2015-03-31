@@ -36,7 +36,7 @@ npm はタスクランナーとして使うことができます。そして、�
     "test": "node test.js"
   },
 
-これができたら、`how-to-npm verify` を実行してチェックしましょう。
+これができたら、`how-to-npm-jp verify` を実行してチェックしましょう。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 

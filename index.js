@@ -2,7 +2,7 @@
 
 var adventure = require('adventure')
 var shop = module.exports = adventure({
-  name: 'how-to-npm',
+  name: 'how-to-npm-jp',
   bg: 'white',
   fg: 'red'
 })

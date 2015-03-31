@@ -22,7 +22,7 @@ exports.problem = function () {
 にも、`--save` を使うことで package.json ファイルからそれに関する
 記述を除去できます。
 
-依存パッケージを除去できたなら、`how-to-npm verify` とタイプして
+依存パッケージを除去できたなら、`how-to-npm-jp verify` とタイプして
 進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }

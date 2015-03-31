@@ -7,18 +7,18 @@ exports.problem = function () { /*
 よく使うコマンド：
 
 npm help ............ npm のヘルプを見る
-how-to-npm print .... 課題を再表示する
-how-to-npm verify ... 自分の回答を提出して、答え合わせをする
-how-to-npm solution . 正解を見る
+how-to-npm-jp print .... 課題を再表示する
+how-to-npm-jp verify ... 自分の回答を提出して、答え合わせをする
+how-to-npm-jp solution . 正解を見る
 
 最初にすることは、みなさんの npm のバージョンが最新であることの確認
 です。
 
-確認できたら、 `how-to-npm verify` を実行してください。
+確認できたら、 `how-to-npm-jp verify` を実行してください。
 
 (ワークショップでネットワークアクセスを必要とするのはここだけです。
 もしネットワークが繋がらず、この課題をスキップしたいときは、
-`how-to-npm verify skip` を実行してください。)
+`how-to-npm-jp verify skip` を実行してください。)
 */}.toString().split('\n').slice(1,-1).join('\n')
 
 // exports.solution = '[sudo] npm install npm -g'

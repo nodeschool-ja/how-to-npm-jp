@@ -21,7 +21,7 @@ exports.problem = function () {
 です。しかし、みなさんは、前の課題でバージョン番号を変更したので、パッ
 ケージを再度公開することができます。
 
-では、やってみましょう。そして、`how-to-npm verify` でご褒美をもらっ
+では、やってみましょう。そして、`how-to-npm-jp verify` でご褒美をもらっ
 てください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
@@ -61,7 +61,7 @@ exports.verify = function (args, cb) {
 
   console.log('わーお。これであなたも未来のTJames "Substack" Halidaychuk\n' +
               'ですね。もうだれも止められない。\n' +
-              '`how-to-npm` を実行して、次へ進んでください。\n\n' +
+              '`how-to-npm-jp` を実行して、次へ進んでください。\n\n' +
               '(訳注: Node.js 界には TJ Holowaychuk と substack こと James Halliday\n' +
               'という二人の有名人がいて、異常な数と質のモジュールをnpmに公開してい\n' +
               'ます)')

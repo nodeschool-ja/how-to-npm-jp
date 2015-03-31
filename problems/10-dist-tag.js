@@ -59,7 +59,7 @@ exports.verify = function (args, cb) {
 として公開して、ベータユーザーが、デフォルトになる前のものをテストできる
 ようにしています。
 
-`how-to-npm` を実行して、次の課題に進んでください。
+`how-to-npm-jp` を実行して、次の課題に進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n'))
   reg.kill()
   return cb(true)

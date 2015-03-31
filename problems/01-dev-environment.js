@@ -75,7 +75,7 @@ exports.verify = function (args, cb) {
                 'npm の規約では、各モジュールやプロジェクトが、git リポジトリ\n' +
                 'をひとつ持つことになっています。`git init` コマンドを使用すれば、\n' +
                 '作業ディレクトリを git プロジェクトとしてセットアップできます。\n\n' +
-                'それから、`how-to-npm verify extra credit` を実行します。\n\n')
+                'それから、`how-to-npm-jp verify extra credit` を実行します。\n\n')
   }
 
   console.log(

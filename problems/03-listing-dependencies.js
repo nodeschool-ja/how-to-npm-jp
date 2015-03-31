@@ -15,17 +15,17 @@ npm は、ただインストールするためだけにあるわけではあり�
 `npm ls` コマンドでこれができます。
 
 このコマンドを作業ディレクトリで実行して、問題なさそうであれば、
-`how-to-npm verify OK` を実行してください。なにか問題があった
-場合は、`how-to-npm verify NOT OK` です。
+`how-to-npm-jp verify OK` を実行してください。なにか問題があった
+場合は、`how-to-npm-jp verify NOT OK` です。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
 //exports.solution = function () {/*
 //npm ls
-//how-to-npm verify NOT OK
+//how-to-npm-jp verify NOT OK
 //npm install once --save
 //npm ls
-//how-to-npm verify OK
+//how-to-npm-jp verify OK
 //*/}.toString().split('\n').slice(1,-1).join('\n')
 
 exports.verify = function (args, cb) {
@@ -50,9 +50,9 @@ exports.verify = function (args, cb) {
 
   if (claim !== 'OK' && claim !== 'NOTOK') {
     console.log('問題がなければ:\n' +
-                '`how-to-npm verify OK`\n' +
+                '`how-to-npm-jp verify OK`\n' +
                 'そうでなければ:\n' +
-                '`how-to-npm verify NOT OK` を実行してください。')
+                '`how-to-npm-jp verify NOT OK` を実行してください。')
     return cb(false)
   }
 
@@ -95,7 +95,7 @@ exports.verify = function (args, cb) {
 
 (もしくは、単に package.json をテキストエディタで編集してもかまいません)
 
-問題を修正したら、`how-to-npm verify OK` を実行します。
+問題を修正したら、`how-to-npm-jp verify OK` を実行します。
       */}.toString().split('\n').slice(1,-1).join('\n')
     )
     // skip calling the cb, so we can keep working on it.
