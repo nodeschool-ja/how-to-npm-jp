@@ -1,11 +1,11 @@
 {
   "name": "how-to-npm-jp",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "description": "モジュールの作成方法を教えてくれるモジュールです",
   "bin": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodeschool-jp/how-to-npm/"
+    "url": "https://github.com/nodeschool-jp/how-to-npm-jp/"
   },
   "keywords": [
     "workshop",
@@ -17,7 +17,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/npm/how-to-npm/issues"
+    "url": "https://github.com/nodeschool-jp/how-to-npm-jp/issues"
   },
   "bundleDependencies": [
     "adventure",
