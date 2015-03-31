@@ -10,18 +10,20 @@ exports.problem = function () {
 
   reg.run('dist-tag')
   return function () { /*
-Now that you've added a dist-tag or two, let's clean things up.
+前回の課題で、一つあるいはそれ以上の配布タグを追加しました。
+今度はそれらをお掃除しましょう。
 
-The only dist-tag you CAN'T ever remove is "latest".  That's because
-every package installs it's "latest" tag by default, so that tag has
-some special semantics.
+削除することのできない配布タグがひとつだけあって、それは"latest"
+です。なぜなら、 各パッケージは、デフォルトで "latest" タグを追加
+して、そのタグが特殊な意味を持つようにするからです。
 
-You CAN point "latest" to a different version, or delete other tags.
+"latest" が異なるバージョンを指したり、あるいは、それ以外のタグでし
+たら削除することができます。
 
-Let's delete all the tags that we can, and also point "latest" at
-something other than the most recent release.
+消せるタグをすべて消してください、そして、"latest" が最新のリリース
+以外を指すようにしてください。
 
-Run `npm help dist-tag` to learn more about the command.
+`npm help dist-tag` を実行して、このコマンドをさらに学んでください。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -42,8 +44,8 @@ exports.verify = function (args, cb) {
   var dt = body['dist-tags']
   var tags = Object.keys(dt)
   if (tags.length > 1) {
-    console.log('Uh oh, looks like you have some extra dist-tags there.')
-    console.log('Use `npm help dist-tag` to learn how to remove them.')
+    console.log('おっ、余計な配布タグがあるようです。')
+    console.log('`npm help dist-tag` を使って、タグを消す方法を学んでください。')
     return cb(false)
   }
 
@@ -60,18 +62,18 @@ exports.verify = function (args, cb) {
   }
 
   if (dt.latest === mostRecentVersion) {
-    console.log('Oops!  Your "latest" tag still points at the most recent\n' +
-                'release, %s.\n' +
-                'Point that somewhere else, and re-run `how-to-npm verify`\n'+
-                'Use `npm help dist-tag` to learn more about how to do it.',
+    console.log('おっと、"latest" がまだ最新のリリースを指したままのようです。\n' +
+                '最新以外のものを指すようにしてから `how-to-npm verify` を\n'+
+                '再度実行してください。\n' +
+                '`npm help dist-tag` を使用して、タグの削除方法を学んでください。',
                 mostRecentVersion)
     return cb(false)
   }
 
   console.log(function () {/*
-Congratulations!  You're a dist-tagging pro!
+おめでとうございます。もはや配布タグのプロですね。
 
-Run `how-to-npm` to move on to the next exercise.
+`how-to-npm` を実行して次の課題に進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n'))
   reg.kill()
   return cb(true)
