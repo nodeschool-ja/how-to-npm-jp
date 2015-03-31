@@ -13,9 +13,9 @@ exports.problem = function () {
   var pkg = require(shop.cwd() + '/package.json')
   var ver = semver.clean(pkg.version)
   if (!ver) {
-    return 'Looks like your package.json has an invalid version!\n' +
-      'Use `npm help semver` to learn more about version numbers\n' +
-      'Your current version number is: ' + pkg.version
+    return 'package.json のバージョンフォーマットが不正なようです。\n' +
+      '`npm help semver` でバージョン番号についてさらに学べます。\n' +
+      '現在のバージョン: ' + pkg.version
   }
 
   var oldVer
@@ -28,37 +28,40 @@ exports.problem = function () {
   }
 
   return function () { /*
-Every package in npm has a version number associated with it.  As
-you release updates to your package, these updates get an updated
-version number.
+npm のどのパッケージにも、それに関連付けられたバージョン番号がありま
+す。みなさんがパッケージの更新版をリリースするときには、バージョン
+番号もいっしょに更新します。
 
-Version numbers in npm follow a standard called "SemVer".  This stands
-for "Semantic Version".  The specification for this standard can be
-found at http://semver.org.
+npm におけるバージョン番号は、"SemVer" と呼ばれる標準に従います。
+"SemVer" は、"Semantic Version" の略です。この標準の仕様は、
+http://semver.org に記載されています。
 
-The tl;dr version is that for a version like this:
+この仕様をかいつまんで言うと、次のようなバージョン番号のことです:
 
   1.2.3
   ^ ^ ^
-  | | `-- Patch version. Update for every change.
-  | `---- Minor version. Update for API additions.
-  `------ Major version. Update for breaking API changes.
+  | | `-- パッチバージョン。変更毎に更新する。
+  | `---- マイナーバージョン。APIを追加したときに更新する。
+  `------ メジャーバージョン。APIの互換性がなくなったときに更新する。
 
-npm has a special command called `npm version` which will update your
-package.json file for you, and also commit the change to git if your
-project is a git repository.  You can learn more at `npm help version`.
+npm には、`npm version` と呼ばれるバージョン番号用のコマンドがあって、
+それを使うと、package.json ファイルを更新してくれます。さらに、もし
+プロジェクトのディレクトリが git リポジトリなら、その変更をコミット
+してくれます。`npm help version` でコマンドの使い方を詳しく学べます。
 
-Or, if you don't trust the machines, you can open up your package.json
-file by hand, and put some new numbers in the "version" field.
+あるいは、機械による更新が不安なら、手動で package.json ファイルを
+開いて、新しい番号を "version" フィールドに入れることもできます。
 
-The npm registry won't let you publish a new release of your package
-without updating the version number!  Ever!  So, get used to the idea of
-bumping the version whenever you want to publish, even if the change is
-really minor.
+npm レジストリは、新しいパッケージを、パージョン番号の更新をせずには公開
+させてくれません。決してです。ですので、公開するときには、常にバージョン
+番号を上げるという考え方に慣れてください、たとえどんなに些細な変更だった
+としても。
 
-Don't worry, there's a lot of integers, we probably won't run out.
+心配は無用です。整数は腐るほどありますから、たぶん使い切ることはできな
+いでしょう。
 
-Update your version number now, and then `how-to-npm verify` to check it.
+それでは、バージョン番号を更新してください。そして、`how-to-npm verify`
+でチェックしましょう。
 
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
@@ -74,21 +77,21 @@ exports.verify = function (args, cb) {
   var pkg = require(shop.cwd() + '/package.json')
   var ver = semver.clean(pkg.version)
   if (!ver) {
-    console.log('Looks like your package.json has an invalid version!\n' +
-      'Use `npm help semver` to learn more about version numbers\n' +
-      'Your current version number is: ' + pkg.version)
+    console.log('package.json のバージョンフォーマットが不正なようです。\n' +
+      '`npm help semver` でバージョン番号についてさらに学べます。\n' +
+      '現在のバージョン: ' + pkg.version)
     return cb(false)
   }
 
   if (ver === oldVer) {
-    console.log('Uh oh!\n' +
-                'The version is still ' + oldVer + '\n' +
-                'Check `npm help version` for a handy util to do this.')
+    console.log('おっと。\n' +
+                'バージョンが ' + oldVer + ' のままです。\n' +
+                '`npm help version` で簡単なバージョン更新の方法を確認しましょう。')
     return cb(false)
   }
 
-  console.log('Great job!\n' +
-              'Run `how-to-npm` for the next exciting challenge!')
+  console.log('よくできました。\n' +
+              '`how-to-npm` を実行して、次のエキサイティングな課題に進んでください。')
 
   return cb(true)
 }
