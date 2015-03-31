@@ -67,19 +67,19 @@ shop.cwd = function () {
     var cwd = fs.readFileSync(path.resolve(datadir, 'cwd'), 'utf8').trim()
     var pkg = require(cwd + '/package.json')
   } catch (er) {
-    console.log('Looks like you are not ready for this one yet!\n' +
-                'Go back to the `01 Dev Environment` lesson to set up\n' +
-                'your working directory.')
+    console.log('まだはじめる準備ができていないようです。\n' +
+                'レッスン01に戻って、作業ディレクトリをセットアップ\n' +
+                'してください。')
     return false
   }
 
   if (cwd === process.cwd())
     return cwd
 
-  console.log('Uh oh!\n'+
-              'It looks like you are in the wrong folder.\n'+
-              'Please cd into ' + cwd +'\n'+
-              'and then try again')
+  console.log('おっと。\n'+
+              '間違ったフォルダーにいるようです。\n'+
+              cwd + ' に cd してください。\n'+
+              'それから再開しましょう。')
   return false
 }
 

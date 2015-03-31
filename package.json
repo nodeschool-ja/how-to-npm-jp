@@ -1,11 +1,11 @@
 {
-  "name": "how-to-npm",
+  "name": "how-to-npm-jp",
   "version": "1.2.0",
-  "description": "A module to teach you how to module.",
+  "description": "モジュールの作成方法を教えてくれるモジュールです",
   "bin": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/how-to-npm"
+    "url": "https://github.com/nodeschool-jp/how-to-npm/"
   },
   "keywords": [
     "workshop",
