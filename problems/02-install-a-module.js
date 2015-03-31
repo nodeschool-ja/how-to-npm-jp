@@ -10,20 +10,21 @@ exports.problem = function () {
   reg.run("install-a-module")
 
   return function () { /*
-The first thing that most people do with npm is install a dependency.
+ほとんどの人が npm で一番最初にやることは、依存パッケージのインストールです。
 
-Dependencies are fetched from the registry, and unpacked in the `node_modules`
-folder.
+依存パッケージは、レジストリから取得して、`node_modules` フォルダに展開
+されます。
 
-To install a module, use the `npm install <modulename>` command.
+モジュールをインストールするためには、`npm install <モジュール名>`
+コマンドを使います。
 
-The registry that we're using for this tutorial is a tiny version of
-the one at https://registry.npmjs.org.  So you might find that it only has
-a small number of things.
+このチュートリアルで使用するレジストリは、https://registry.npmjs.org
+のミニチュア版です。ですので、レジストリにすこししかパッケージがない
+ことに気付くかもしれません。
 
-Let's start out by installing the "once" module.
+まずは、"once" モジュールのインストールからはじめましょう。
 
-Run `$ADVENTURE_COMMAND verify` once you're done.
+インストールができたら、`$ADVENTURE_COMMAND verify` を実行します。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -37,15 +38,15 @@ exports.verify = function (args, cb) {
   try {
     var once = require(cwd + '/node_modules/once')
   } catch (er) {
-    console.log('Uh oh!  Looks like it didn\'t install right.\n'+
-                'The error I got was: \n' +
+    console.log('おっと、パッケージが正しくインストールされていないようです。\n'+
+                '発生したエラー: \n' +
                 (er.stack || er.message) + '\n' +
-                'Make sure you use the `npm install once` command\n' +
-                'to install the `once` module.')
+                '`npm install once` コマンドを実行して `once` モジュールを\n' +
+                'インストールをしましたでしょうか。確認してください。')
     return cb(false)
   }
 
-  console.log('Congratulations! You installed it.')
+  console.log('おめでとうございます。パッケージのインストールができました。')
   reg.kill()
 
   return cb(true)
