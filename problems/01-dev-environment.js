@@ -1,18 +1,19 @@
 // Old-sk00l multi-line strings
 exports.problem = function () { /*
-One of the most important things that npm does is install packages.
+なんと言ってもnpmの一番重要な役割は、パッケージをインストールすることです。
 
-However, in order to be a good workshop program, we don't want to litter
-files all over your computer, so before going any further, let's set up a
-development environment.
+しかしながら、お行儀のいいワークショッププログラムであるためにも、みなさ
+んのコンピューターのそこかしこにファイルを散らばらせたりは、したくありま
+せん。ですので、先に進む前に、ワークショップ用の開発環境を準備しましょう。
 
-First, make a new directory and `cd` into it.
+まず、新しいディレクトリを作成して、その中に `cd` してください。
 
-Then, run `npm init` to create a package.json file.  (For extra credit, set
-it up as a git repo as well.)
+それから、`npm init` を実行し、package.json ファイルを作成します (追加の
+課題のために、そのディレクトリを git リポジトリとしてもセットアップしてお
+きましょう)。
 
-Run `$ADVENTURE_COMMAND verify` once you're done.  All the other commands
-you run in this tutorial should be done in that folder.
+準備ができたら、`$ADVENTURE_COMMAND verify` を実行します。以降このチュート
+リアルで実行する作業は、すべてこのフォルダの中で行います。
 */}.toString().split('\n').slice(1,-1).join('\n')
 
 //exports.solution = function () {/*
@@ -33,14 +34,16 @@ exports.verify = function (args, cb) {
   var datadir = shop.datadir
   var cwd = process.cwd()
   if (path.resolve(cwd, 'problems', path.basename(__filename)) === path.resolve(__filename)) {
-    console.log('It looks like you are in the root of the workshopper\n' +
-                'That is not wise.  Please make a new dir, and use that.')
+    console.log('ワークショッパーのルートにいるようです。\n' +
+                'そこで作業するのはあまりよくありません。新しいディレクトリを作成して\n' +
+                'それを使いましょう。')
     return cb(false)
   }
 
   if (cwd === process.env.HOME || cwd === process.env.USERPROFILE) {
-    console.log('It looks like you are in your home directory.\n' +
-                'That is not wise.  Please make a new dir, and use that.')
+    console.log('ホームディレクトリにいるようです。\n' +
+                'そこで作業するのはあまりよくありません。新しいディレクトリを作成して\n' +
+                'それを使いましょう。')
     return cb(false)
   }
 
@@ -48,42 +51,45 @@ exports.verify = function (args, cb) {
   try {
     pkg = require(cwd + '/package.json')
   } catch (er) {
-    console.log('No package.json found.\n' +
-                'Please run `npm init` in your working directory.')
+    console.log('package.json が見付かりません。\n' +
+                '`npm init` を作業ディレクトリで実行してください。')
     return cb(false)
   }
 
   if (/^extracredit$/i.test(args[0] + args[1])) {
     try {
       fs.readFileSync(path.resolve(cwd, '.git', 'config'))
-      console.log('EXTRA CREDIT!  Nicely done.\n')
+      console.log('追加課題もできましたね。お見事。\n')
     } catch (er) {
-      console.log('Well, you got everything except the git part.\n'+
-                  'The convention is one git repo per module, so\n'+
-                  'you usually ought to run `git init` at the root\n'+
-                  'of your project.\n'+
-                  'Remove the .git folder from wherever you were,\n'+
-                  'and run `git init` in ' + cwd)
+      console.log('おっ、git に関する部分以外はできましたね。\n' +
+                  'npm の規約では、モジュールひとつにつき、git リポジトリ\n' +
+                  'ひとつ、となっています。ですので、通常、プロジェクト\n' +
+                  'のルートで、`git init` を実行するはずです。\n' +
+                  '.git フォルダを他の場所に作ってしまった場合、それを削除\n' +
+                  'して、`git init` を ' + cwd + ' で実行します。')
       return cb(false)
     }
   } else {
-    console.log('For extra credit, try also setting up this dir as\n'+
-                'a git repository.\n\n'+
-                'The convention is to have a single git repo for each\n'+
-                'module or project.  Use the `git init` command to set\n'+
-                'up your working dir as a git project.\n\n'+
-                'Then, run `how-to-npm verify extra credit`\n\n')
+    console.log('追加課題として、 このディレクトリを git リポジトリとして\n' +
+                'セットアップしてみましょう。\n\n' +
+                'npm の規約では、各モジュールやプロジェクトが、git リポジトリ\n' +
+                'をひとつ持つことになっています。`git init` コマンドを使用すれば、\n' +
+                '作業ディレクトリを git プロジェクトとしてセットアップできます。\n\n' +
+                'それから、`how-to-npm verify extra credit` を実行します。\n\n')
   }
 
   console.log(
-    'Congratulations!\n' +
-    'You created an npm package!  View the package.json file to see it.\n' +
-    '\n'+
-    'From here on out, make sure to run the workshop in this dir\n'+
-    '\n'+
-    'You might notice that a `.npmrc` file will show up in there.\n' +
-    'That normaly would not be required, but the workshop uses it\n' +
-    'to mock out the parts that would normally talk to the internet.'
+    'おめでとうございます。\n' +
+    'npm パッケージを作成できました。パッケージの内容を知りたければ、\n' +
+    'package.json ファイルを見てみましょう\n' +
+    '\n' +
+    'これ以降、ワークショップの作業はこのディレクトリ内で行うように\n' +
+    'してください。' +
+    '\n' +
+    '`.npmrc` というファイルがあることに気付きましたか。\n' +
+    'このファイルは、ふつうは要りませんが、このワークショップでは、\n' +
+    '`.npmrc` を使って、インターネットと繋っているように見せかけます\n' +
+    '(実際にはインターネットにアクセスしません)。'
   )
 
   // Save the cwd so that we can ensure we're in the right place from now on
