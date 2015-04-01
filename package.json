@@ -5,7 +5,7 @@
   "bin": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodeschool-jp/how-to-npm-jp/"
+    "url": "https://github.com/nodeschool-ja/how-to-npm-jp/"
   },
   "keywords": [
     "workshop",
@@ -17,7 +17,7 @@
   "author": "Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me/)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nodeschool-jp/how-to-npm-jp/issues"
+    "url": "https://github.com/nodeschool-ja/how-to-npm-jp/issues"
   },
   "bundleDependencies": [
     "adventure",
