@@ -23,7 +23,7 @@ package.json に記述されている許容可能な最大のバージョンま�
 ます)。
 
 すべての依存パッケージを可能な限り新しいバージョンに更新してから、
-`how-to-npm verify` を実行して、緑色の素敵なバナーを表示させましょう。
+`how-to-npm-jp verify` を実行して、緑色の素敵なバナーを表示させましょう。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
@@ -41,6 +41,6 @@ exports.verify = function (args, cb) {
 
   reg.kill()
   console.log('すばらしい。最新版にできました。\n' +
-              '`how-to-npm` を実行して次の課題に進んでください。')
+              '`how-to-npm-jp` を実行して次の課題に進んでください。')
   return cb(true)
 }

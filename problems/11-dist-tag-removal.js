@@ -63,7 +63,7 @@ exports.verify = function (args, cb) {
 
   if (dt.latest === mostRecentVersion) {
     console.log('おっと、"latest" がまだ最新のリリースを指したままのようです。\n' +
-                '最新以外のものを指すようにしてから `how-to-npm verify` を\n'+
+                '最新以外のものを指すようにしてから `how-to-npm-jp verify` を\n'+
                 '再度実行してください。\n' +
                 '`npm help dist-tag` を使用して、タグの削除方法を学んでください。',
                 mostRecentVersion)
@@ -73,7 +73,7 @@ exports.verify = function (args, cb) {
   console.log(function () {/*
 おめでとうございます。もはや配布タグのプロですね。
 
-`how-to-npm` を実行して次の課題に進んでください。
+`how-to-npm-jp` を実行して次の課題に進んでください。
 */}.toString().split('\n').slice(1,-1).join('\n'))
   reg.kill()
   return cb(true)

@@ -29,12 +29,12 @@ exports.problem = function () {
 合わせで識別できることから、`npm outdated` コマンドで機械的に互換性
 のあるリリースを検出することができます。
 
-この課題をパスするために、`how-to-npm verify PKG` を実行してください。
+この課題をパスするために、`how-to-npm-jp verify PKG` を実行してください。
 ただし、`PKG` は古くなってしまったパッケージの名前とします。
 */}.toString().split('\n').slice(1,-1).join('\n')
 }
 
-//exports.solution = 'npm outdated; how-to-npm verify once'
+//exports.solution = 'npm outdated; how-to-npm-jp verify once'
 
 exports.verify = function (args, cb) {
   if (!shop.cwd())
@@ -52,7 +52,7 @@ exports.verify = function (args, cb) {
   }
 
   if (!arg || arg === 'pkg') {
-    console.log('`how-to-npm verify PKG` を実行してください。ただし、`PKG` を\n' +
+    console.log('`how-to-npm-jp verify PKG` を実行してください。ただし、`PKG` を\n' +
                 '古くなってしまったパッケージ名と置き換えて。')
   } else if (arg !== 'once') {
     console.log('違います。%s ではありません。もう１度。', arg)

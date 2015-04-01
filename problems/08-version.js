@@ -60,7 +60,7 @@ npm レジストリは、新しいパッケージを、パージョン番号の�
 心配は無用です。整数は腐るほどありますから、たぶん使い切ることはできな
 いでしょう。
 
-それでは、バージョン番号を更新してください。そして、`how-to-npm verify`
+それでは、バージョン番号を更新してください。そして、`how-to-npm-jp verify`
 でチェックしましょう。
 
 */}.toString().split('\n').slice(1,-1).join('\n')
@@ -91,7 +91,7 @@ exports.verify = function (args, cb) {
   }
 
   console.log('よくできました。\n' +
-              '`how-to-npm` を実行して、次のエキサイティングな課題に進んでください。')
+              '`how-to-npm-jp` を実行して、次のエキサイティングな課題に進んでください。')
 
   return cb(true)
 }

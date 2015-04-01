@@ -32,7 +32,7 @@ exports.problem = function () {
 自分の手で package.json を編集してもいいですし、`npm init` を再度実行
 してもかまいません。
 
-終わったら、`how-to-npm verify` を実行します。
+終わったら、`how-to-npm-jp verify` を実行します。
 */}.toString().split('\n').slice(1,-1).join('\n').replace(/%ID%/g, id)
 }
 
